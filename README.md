@@ -25,6 +25,6 @@ Primeiro é necessario configurar o ambiente!
 
 [acesse este link para configurar](https://www.notion.so/Instala-o-das-ferramentas-2e3f74b481204a69a1189a4cfe54adc7)
 
-É necessario ter o Node.Js instalado em sua maquina... basta apenas clonar o repositório, escrever **yarn install** (caso nao tenha o yarn instalado, basta apenas escrever **npm install -g yarn** )  
-
-Após concluido, basta apenas escrever **yarn start"" 
+-Após configurado o ambiente, basta puxar o projeto com um "**git clone https://github.com/GuilhermeZety/Shop2Gether-Banner.git**"
+-Após o projeto estar em sua maquina, basta escrever no terminal dentro do projeto "**yarn**"
+-Depois de todas as dependencias instaladas, basta apenas no mesmo terminal, escrever "**yarn start**" que abrirá automaticamente(caso tenha dado sucesso e nao tiver entrado. basta escrever localhost:3000 no navegador);
