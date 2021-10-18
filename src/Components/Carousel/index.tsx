@@ -1,4 +1,6 @@
 //Utilidade para formatar number para Real 
+import React from 'react';
+import { FaDotCircle } from 'react-icons/fa';
 import { formatPrice } from "../../util/format";
 
 //Components
@@ -21,12 +23,29 @@ interface CarouselProps{
 
 /* Função Que Retorna o Carousel com as imagens */
 export function Carousel(props: CarouselProps){
+
+    function first(event: React.MouseEvent<HTMLAnchorElement>){
+        for(var i= 0 ; i < (event.currentTarget.parentNode?.children[1].children.length || 1); i++){
+           let div = event.currentTarget.parentNode?.children[1].children[i] as HTMLDivElement
+
+           div.style.transform = 'translateX(0%)'
+        }
+    }
+
+    function last(event: React.MouseEvent<HTMLAnchorElement>){
+        for(var i= 0 ; i < (event.currentTarget.parentNode?.children[1].children.length || 1); i++){
+           let div = event.currentTarget.parentNode?.children[1].children[i] as HTMLDivElement
+
+           div.style.transform = 'translateX(-10%)'
+        }
+    }  
+
     return(
         <Container>            
             <span>{props.title}</span>
-            <Block>
+            <Block >
                 {props.itens.map( item => ( 
-                    <ItemBlock url={item.url} key={item.id}>
+                    <ItemBlock url={item.url} key={item.id} id={item.id.toString()}>
                         <Opacity >
                             <div className="Title">
                                 <h3>{item.title.toLocaleUpperCase()}</h3>
@@ -40,6 +59,17 @@ export function Carousel(props: CarouselProps){
                     </ItemBlock>
                  ))}
             </Block>
+            {props.itens.map( (item) => {                
+                if(item.id === props.itens[0].id){
+                    return (
+                        <a key={item.id} href={ '#' + item.id } onClick={first}><FaDotCircle /></a>
+                    )
+                }else{
+                    return (
+                        <a key={item.id} href={ '#' + item.id } onClick={last}><FaDotCircle /></a>
+                    )
+                }
+                })}
         </Container>
     )
 }

@@ -7,6 +7,9 @@ interface ItemBlockProps{
 
 //Exporta o container que fica por trás
 export const Container = styled.div`
+:target {
+  scroll-margin-left: .8em;
+}
     display: flex;
     width: 100%;
     height: 100%;
@@ -23,15 +26,26 @@ export const Container = styled.div`
         font-size: 1.3rem;
     }
 
+    a{
+        display: none;
+        color: #444
+    }
+    @media(max-width: 1280px){
+        a{
+            display: block;
+        }
+    }
+
 `
 //bloco onde ficará as imagens
 export const Block = styled.div`
+scroll-behavior: smooth; 
     width: 100%;
     display: flex;
     grid-gap: 1rem;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-between; 
     overflow: overlay;
     border-radius: 0.5rem;
     
@@ -57,6 +71,7 @@ export const Block = styled.div`
 `
 //Aonde é inserido as imagens
 export const ItemBlock = styled.div<ItemBlockProps>`
+    scroll-behavior: smooth; 
     border-radius: 0.5rem;
     width: 100%;
     height: 45vh;
@@ -69,7 +84,7 @@ export const ItemBlock = styled.div<ItemBlockProps>`
     background-size: cover;
     color: white;
     transition: all 0.5s ease-in-out;
-
+    
     div.Title{
         display: flex;
         flex-direction: column;
